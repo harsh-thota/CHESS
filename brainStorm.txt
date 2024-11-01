@@ -1,0 +1,16 @@
+board->
+    letter and numbers for x and y 
+    letters filled in box
+    letter for notation and pieces
+logic->
+    check for win
+    show moves
+    check and illegal moves
+    stalkmate
+user comunication->
+    tell user illegal moves and available moves once user selets box
+    reports all moves made by each player once game ends
+
+
+
+
