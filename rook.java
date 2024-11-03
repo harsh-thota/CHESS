@@ -1,7 +1,7 @@
  class rook extends piece{
     
     rook(String c) {
-
+        points  = 5;
         if(c.equals("w")){
             color = "w";
             not = "R";

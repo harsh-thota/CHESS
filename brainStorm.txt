@@ -12,5 +12,8 @@ user comunication->
     reports all moves made by each player once game ends
 
 
+pawn -> rules up, start, left, right
+rook
+
 
 

@@ -2,6 +2,7 @@
     String not;
     int[][] spwan; 
     String color;
+    int points;
 
     
     void setColor(String c) {

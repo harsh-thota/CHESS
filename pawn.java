@@ -1,7 +1,7 @@
 class pawn extends piece {
 
 	pawn(String c) {
-
+		points =1;
 		if (c.equals("b")) {
 			color = "b";
 			not = "p";
@@ -20,7 +20,7 @@ class pawn extends piece {
 		if ((pieceColor.equals("w") && from[0] == 6) || (pieceColor.equals("b") && from[0] == 1)) {
 
 			if (pieceColor.equals("w") && to[1] == from[1]) {
-				System.out.println("white");
+				
 				if ((to[0] == from[0] - 2) && (grid[to[0]][to[1]]).equals(" ")
 						&& (grid[to[0] + 1][to[1]]).equals(" ")) {
 					return true;
@@ -30,7 +30,7 @@ class pawn extends piece {
 			}
 
 			if (pieceColor.equals("b") && to[1] == from[1]) {
-				System.out.println("black");
+		
 				if ((to[0] == from[0] + 2) && (grid[to[0]][to[1]]).equals(" ")
 						&& (grid[to[0] - 1][to[1]]).equals(" ")) {
 					return true;

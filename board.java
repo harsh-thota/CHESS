@@ -1,10 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 class board {
 	String[] initList = { "wR", "bR", "wN", "bN", "wB", "bB", "wQ", "bQ", "wK", "bK", "wP", "bP" };
 	String[][] grid;
 	Map<String, piece> pieceMap;
+	player wPlayer;
+	player bPlayer;
 	rook wR;
 	rook bR;
 	pawn wP;  	
@@ -21,6 +24,8 @@ class board {
 	board() {
 		grid = new String[8][8];
 		pieceMap = new HashMap<String, piece>();
+		bPlayer = new player("b");
+		wPlayer = new player("w");
 		wR = new rook("w");
 		bR = new rook("b");
 		wP = new pawn("w");
@@ -91,6 +96,7 @@ class board {
 			System.out.println();
 
 		}
+		System.out.println();
 	}
 
 	piece getPiece(int[] cordinates) {
@@ -112,21 +118,78 @@ class board {
 		
 	}
 
+	boolean isGameover(){
+		if(true) return true; // delete later 
+		return false;
+	}
+
 	boolean capture(int[] from, int to[]) {
 		
 		if (grid[from[0]][from[1]].equals(" ") || getPiece(to).color.equals(getPiece(from).color)) {
 			return false;
 		} else {
-
 			piece fromPeiceType = getPiece(from);
+			piece toPeiceType;
+			boolean isToNotEmpty = !grid[to[0]][to[1]].equals(" ");
+
+			
+
+			
 			if (fromPeiceType.isValidMove(grid, from, to, fromPeiceType.color)) {
+
+				if (isToNotEmpty) {
+					toPeiceType = getPiece(to);
+
+					if (fromPeiceType.color.equals("w")) {
+						wPlayer.capturePeice(toPeiceType);
+					} else {
+						bPlayer.capturePeice(toPeiceType);
+					}
+				
+				}
+
 				grid[from[0]][from[1]] = " ";
 				grid[to[0]][to[1]] = fromPeiceType.not;
+				return true;
 			} else {
 				return false;
 			}
+		}
 
-			return false;
+	}
+
+	void startGame(){
+		Scanner in = new Scanner(System.in);
+		System.out.print("Black player's name: ");
+		bPlayer.playerName = in.nextLine();
+		System.out.print("White player's name: ");
+		wPlayer.playerName = in.nextLine();
+		System.out.println();
+		player lastPlayed = bPlayer;
+		
+
+		while(isGameover()){
+			if(lastPlayed == bPlayer){ // white playing
+				lastPlayed = wPlayer;
+				System.out.println(wPlayer.playerName + "'s Turn");
+			}else{                    // black playing
+				lastPlayed = bPlayer;
+				System.out.println(bPlayer.playerName + "'s Turn");
+			}
+
+			System.out.println("Enter X value of the piece you want to move");
+				int fromX = in.nextInt();
+				System.out.println("Enter Y value of the piece you want to move");
+				int fromY = in.nextInt();
+				System.out.println("Enter X value of the box you want to move to");
+				int toX = in.nextInt();
+				System.out.println("Enter Y value of the Box you want to move to");
+				int toY = in.nextInt();
+				
+			 	capture(new int[]{fromX,fromY}, new int[]{toX,toY});
+				print();
+				printCor();
+
 		}
 
 	}

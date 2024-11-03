@@ -2,12 +2,13 @@ class king extends piece {
 
 
     king (String c) {
-
+        points = 0;
         if(c.equals("w")){
             color = "w";
             not = "K";
             spwan = new int[][] {{7,4}};
         }else if(c.equals("b")){
+            color = "b";
             not = "k";
             spwan = new int[][] {{0,4}};
         }
