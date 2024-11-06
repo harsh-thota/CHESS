@@ -15,5 +15,4 @@ user comunication->
 pawn -> rules up, start, left, right
 rook
 
-
-
+FIX YOUR CODE

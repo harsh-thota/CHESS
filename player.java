@@ -1,5 +1,5 @@
 import java.util.HashMap;
-public class player {
+class player { //this was public earlier, and it fixed the error
     int TotalPoints; 
     String color;
     String playerName;

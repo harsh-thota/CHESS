@@ -7,3 +7,6 @@
 /piece.class
 /queen.class
 /rook.class
+/player.class
+#bruv u didn't git ignore player class
+#also just create a add .gitignore while creating a repo and then add the necessary files later
